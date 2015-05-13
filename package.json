@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-sequilizejs(ORM)",
+  "version": "0.0.5-11",
+  "description": "CRUD using nodejs-sequelizejs(ORM)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gauravbhavsar/nodejs-sequelizejs.git"
+  },
+  "dependencies": {
+    "express": "~3.0.1",
+    "ejs": "~0.8.3",
+    "sequelize":"latest",
+    "q":"latest",
+    "tedious":"latest",
+    "angular":"latest"
+  },
+  "subdomain": "gauravbhavsar-nodejs-sequelizejs(ORM)",
+  "engines": {
+    "node": ">=0.8.x"
+  }
+}

@@ -1,0 +1,51 @@
+<html ng-app="app">
+<head>
+  <script src="/public/jquery-1.8.0.js"></script>
+  <script src="/public/bootstrap.js"></script>
+  <link rel="stylesheet" href="/public/bootstrap.css" />
+</head>
+<body ng-controller="userController">
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Node with sequelizeJS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/users">User</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+      <div class="col-lg-12">
+        <a href="/create/user" class="btn btn-primary"> Create New User</a>
+      </div>
+
+<% for(var i=0; i<UserInfo.length;i++){ %>
+      	<div class="col-lg-4" style="margin-top:30px">
+      		<div class="panel panel-default">
+      			<div class="panel-heading clearfix">
+      				<h3 class="panel-title pull-left"><%=UserInfo[i].firstName%></h3>
+              <div class="pull-right btn btn-group">
+                <a class="btn btn-primary" href="/user/<%=UserInfo[i].id%>">
+                  <i class="fa fa-pencil"></i>Edit
+                </a>
+                <a href="/delete/user/<%=UserInfo[i].id%>" class="btn btn-danger delete" >Delete</a>
+              </div>
+      			</div>
+      			<div class="list-group">
+      				<div class="list-group-item">
+      					<p class="list-group-item-text col-lg-12">CreatedAt</p>
+      					<h4 class="list-group-item-heading col-lg-12"><%=UserInfo[i].createdAt%></h4>
+      				</div>
+      				<div class="list-group-item">
+      					<p class="list-group-item-text">This is user Information showing using node and expressJS with mssql (ORM) i.e sequelizeJS)</p>
+      				</div>
+      			</div>
+      		</div>
+      	</div>
+        <%}%>
+  	</div>
+  </body>
+</html>

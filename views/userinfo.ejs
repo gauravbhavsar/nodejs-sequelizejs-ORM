@@ -1,0 +1,61 @@
+<html>
+	<head>
+    <script src="/public/jquery-1.8.0.js"></script>
+		<link rel="stylesheet" href="/public/bootstrap.css" />
+	</head>
+	<div class="container">
+  	<nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Node with sequelizeJS</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/users">User</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    <form id="form">
+      <div class="form-group">
+        <label class="label label-default">First Name</label>
+        <input class="form-control" id="firstName" type="text" value="<%=UserInfo.firstName%>" placeholder="First Name" />
+      </div>
+      <input type="hidden" id="id" value="<%=UserInfo.id%>" />
+      <div class="form-group">
+        <label class="label label-default">Last Name</label>
+        <input class="form-control" id="lastName" type="text" value="<%=UserInfo.lastName%>" placeholder="Last Name" />
+      </div>
+      <div class="btn-group">
+        <button type="submit" class="btn btn-success">Update</button>
+      </div>
+    </form> 
+	</div>
+</html>
+<script>
+$("#form").submit(function(e)
+{
+  var model={
+    firstName:$('#firstName').val(),
+    lastName:$('#lastName').val(),
+    id:$('#id').val()
+  };
+  $.ajax({
+    type:"PUT",
+    url:"/userput",
+    data:model,
+    success:function(){
+      window.location.href="/users";
+    }
+  });
+});
+</script>
+<style>
+  .label{
+    margin-left:10px;
+    margin-bottom: 1px;
+  }
+  .form-group input{
+    margin-top:3px;
+  }
+</style>
