@@ -16,7 +16,11 @@ app.use(app.router);
 app.use('/public', express.static('public'));
 
 app.get('/', function (req, res) {
-  	res.render('index');
+  	db.User().findAll({where:{IsDeleted: false},order: "'id' DESC"}).then(function(d){
+	 	res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+	 	res.render('users',{"UserInfo":d});
+	 	res.send(d);
+	 });
 });
 
 app.get('/create/user', function(req, res) {
